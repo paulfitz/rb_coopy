@@ -1,7 +1,12 @@
-require 'diff_output'
+require 'coopy/diff_output'
+require 'csv'
 
 class DiffParser
-  def initialize(output)
+  def initialize(fname)
+    @rows = CSV.read(fname)
+  end
+
+  def set_output(output)
     @diff_output = output
   end
 
@@ -10,7 +15,8 @@ class DiffParser
     @diff_output.apply_row(rc)
   end
 
-  def apply(rows)
+  def apply
+    rows = @rows
     render = @diff_output
     return if render.nil?
     render.begin_diff

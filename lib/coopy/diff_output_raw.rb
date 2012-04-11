@@ -2,6 +2,16 @@ require 'coopy/diff_output'
 
 class DiffOutputRaw < DiffOutput
   def apply_row(rc)
-    puts "Diff: #{rc.inspect}"
+    unless @shown_columns
+      puts "COLUMN NAMES:      #{rc.columns.column_name}"
+      puts "COLUMN OFFSETS:    #{rc.columns.column_offset}"
+      puts "COLUMN CHANGE ROW: #{rc.columns.change_row}"
+      puts "COLUMN TITLE ROW:  #{rc.columns.title_row}"
+      puts " "
+      @shown_columns = true
+    end
+    puts "Mode: [#{rc.row_mode}]"
+    puts "Cells: #{rc.cells}"
+    puts " "
   end
 end

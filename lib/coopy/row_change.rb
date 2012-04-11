@@ -16,10 +16,10 @@ class RowChange
   end
 
   def value_at(column)
-    @cells[column[:diff_offset]][:value]
+    @cells[column[:in_offset]][:value]
   end
 
   def new_value_at(column)
-    @cells[column[:diff_offset]][:new_value]
+    @cells[column[:in_offset]][:new_value]
   end
 end

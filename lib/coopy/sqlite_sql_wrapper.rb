@@ -18,11 +18,12 @@ class SqliteSqlWrapper < SqlWrapper
   end
 
   def get_table_names
-    return sqlite_execute("SELECT name FROM sqlite_master WHERE type='table'",[]).flatten
+    sqlite_execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name",[]).flatten
   end
 
   def complete_table(tbl)
     @t = tbl unless tbl.nil?
+    @t = get_table_names[0] if @t.nil?
     @t
   end
 

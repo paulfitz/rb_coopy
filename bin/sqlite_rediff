@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'coopy'
-Coopy.diff(ARGV)
+Coopy.rediff(ARGV)
