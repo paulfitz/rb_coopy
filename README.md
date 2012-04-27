@@ -1,1 +1,1 @@
-Factor out material in https://github.com/paulfitz/coopy/tree/master/src/ruby
+Merged into https://github.com/paulfitz/coopy/rb_coopy
